@@ -861,12 +861,7 @@ section {
 
 .video-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.85), rgba(6, 182, 212, 0.85)),
-        radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.5) 80%);
+    top: 0; left: 0; right: 0; bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -874,19 +869,47 @@ section {
     transition: all 0.4s ease;
     border-radius: 6px;
     z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
     box-shadow: 0 8px 32px rgba(124, 58, 237, 0.15), 0 0 0 1px rgba(6, 182, 212, 0.08);
     opacity: 1;
     animation: overlayPulse 3s ease-in-out infinite;
+    overflow: hidden;
 }
 
 .video-overlay img {
-    height: 80px !important;
-    width: 80px !important;
-    object-fit: contain;
-    margin-bottom: 12px;
-    border-radius: 14px;
-    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.18), 0 0 0 2px rgba(6, 182, 212, 0.12);
-    animation: floatIcon 2.5s ease-in-out infinite;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    z-index: 1;
+    opacity: 0.8;
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+}
+
+.video-overlay span {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0.95;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 8px 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
 }
 
 @keyframes floatIcon {
@@ -897,17 +920,6 @@ section {
 @keyframes overlayPulse {
     0%, 100% { box-shadow: 0 8px 32px rgba(124, 58, 237, 0.15), 0 0 0 1px rgba(6, 182, 212, 0.08); }
     50% { box-shadow: 0 16px 48px rgba(6, 182, 212, 0.22), 0 0 0 3px rgba(124, 58, 237, 0.12); }
-}
-
-.video-overlay span {
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    opacity: 0.95;
-    letter-spacing: 0.5px;
-    margin-top: 4px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 0 2px #06b6d4;
 }
 
 .video-overlay::after {
@@ -957,9 +969,10 @@ section {
 
 .video-popup-container {
     position: relative;
-    width: 80vw;
+    width: 90vw; /* Use a percentage of viewport width */
     max-width: 900px;
-    height: 60vh;
+    /* height: 60vh; Remove fixed height */
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
     background: linear-gradient(145deg, #2d3748, #1a202c);
     border-radius: 20px;
     padding: 20px;
@@ -969,7 +982,6 @@ section {
         0 0 60px rgba(6, 182, 212, 0.3);
     animation: videoPopupZoom 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
 .video-popup-screen {
     width: 100%;
     height: 100%;
@@ -1013,7 +1025,17 @@ section {
     transform: scale(1.1) rotate(90deg);
     box-shadow: 0 8px 30px rgba(124, 58, 237, 0.6);
 }
-
+@supports not (aspect-ratio: 16 / 9) {
+    .video-popup-container {
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+    }
+    .video-popup-screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
 @keyframes overlayFadeIn {
     from {
         opacity: 0;
@@ -1059,6 +1081,12 @@ section {
 .laptop-frame:hover .video-overlay {
     opacity: 0;
     transform: scale(0.95);
+    pointer-events: none;
+}
+
+.laptop-frame:hover .video-overlay img {
+    opacity: 0 !important;
+    visibility: hidden !important;
 }
 
 .laptop-frame:hover .laptop-base {
@@ -1424,6 +1452,18 @@ section {
     align-items: start;
     position: relative;
     z-index: 1;
+}
+
+@media (max-width: 900px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .contact-info, .contact-form {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
 }
 
 .contact-info {
@@ -1805,6 +1845,17 @@ section {
     .container {
         padding: 0 1rem;
     }
+    .video-popup-container {
+        width: 95vw; /* Adjust width for smaller screens */
+        padding: 10px; /* Reduce padding */
+    }
+    .video-popup-close {
+        top: -10px; /* Adjust close button position */
+        right: -10px;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1834,6 +1885,17 @@ section {
 
     .services-grid {
         grid-template-columns: 1fr;
+    }
+    .contact-card h3 {
+        font-size: 1rem; /* Smaller font size for card titles */
+    }
+    .contact-card p {
+        font-size: 0.9rem; /* Smaller font size for card paragraphs */
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem; /* Adjust padding for input fields */
+        font-size: 0.9rem; /* Smaller font size for input text */
     }
 }
 

@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         popupVideo.currentTime = 0;
                         popupVideo.play().catch(e => console.log('Popup video autoplay blocked:', e));
                     }, 100);
-                }, 800); // 800ms delay before enlarging
+                }, 4000); // 4000ms delay before enlarging
             });
             
             frame.addEventListener('mouseleave', function() {
