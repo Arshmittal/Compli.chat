@@ -521,3 +521,234 @@ const throttledResize = throttle(() => {
 
 window.addEventListener('scroll', debouncedScroll);
 window.addEventListener('resize', throttledResize);
+
+
+const projectsData = {
+    'mentormate': {
+        title: 'Mentormate Platform',
+        subtitle: 'AI-Powered Engineering Expertise for Southern Africa',
+        video: 'static/5.mp4',
+        description: 'Mentormate is a revolutionary AI platform specifically designed for engineering professionals in the built environment sector. Unlike generic AI tools, Mentormate leverages specialized, domain-specific avatars powered by carefully curated Southern African data to deliver accurate, localized, and actionable technical advice. The platform bridges the knowledge gap in emerging markets by providing instant access to expert-level engineering guidance tailored to local conditions, regulations, and best practices.',
+        features: [
+            'Domain-specific AI avatars for engineering disciplines',
+            'Curated Southern African data and standards',
+            'Real-time technical consultation and problem-solving',
+            'Integration with building codes and regulations',
+            'Multi-language regional support',
+            'Team collaboration workspace',
+            'Knowledge management for projects'
+        ],
+        techStack: [
+            'Engineering AI',
+            'Domain Avatars',
+            'Southern Africa',
+            'Technical Guidance',
+            'Built Environment'
+        ]
+    },
+    'minnai': {
+        title: 'MinnAI: Instant 245D Compliance',
+        subtitle: 'AI-Driven Minnesota DHS Compliance Platform',
+        video: 'static/2.mp4',
+        description: "MinnAI is an AI-driven platform built to automate compliance for Minnesota’s 245D regulations. Providers can securely upload documents for instant gap analysis, receive regulatory guidance, and get real-time alerts on rule updates—making 245D compliance easier, faster, and more reliable for healthcare agencies.",
+        features: [
+            '245D compliance gap analysis',
+            'AI chatbot for DHS rule guidance',
+            'Real-time regulation alerts',
+            'Secure document upload & automated review',
+            'Compliance audit preparation tools',
+            'Legal expert validation & endorsement',
+            'Risk assessment & mitigation'
+        ],
+        techStack: [
+            'Compliance',
+            '245D',
+            'Minnesota DHS',
+            'Healthcare',
+            'Document Analysis',
+            'AI Chatbot'
+        ]
+    },
+    'legal-ai-arena': {
+        title: 'Legal AI Arena',
+        subtitle: 'Competitive Platform for Legal AI Model Evaluation',
+        video: 'static/4.mp4',
+        description: 'Legal AI Arena is a pioneering platform where legal AI models compete on real legal tasks—including contract review, research, and compliance. With transparent ELO-based rankings and user voting, it enables legal professionals to track, compare, and advance the performance of cutting-edge legal AI technologies.',
+        features: [
+            'Real-time AI model competitions',
+            'ELO-based transparent rankings',
+            'Contract review and analysis',
+            'Legal research and citation tests',
+            'Community voting and peer evaluation',
+            'Comprehensive legal evaluation benchmark',
+            'Live performance analytics and comparisons'
+        ],
+        techStack: [
+            'Legal AI',
+            'Model Evaluation',
+            'ELO Rating',
+            'Legal Research',
+            'Contract Analysis',
+            'Community Voting'
+        ]
+    },
+    'knollyapp': {
+        title: 'KnollyApp',
+        subtitle: 'Interactive AI-Powered Learning Platform',
+        video: 'static/3.mp4',
+        description: 'KnollyApp is an interactive learning platform powered by AI. It features dynamic topic selection, step-by-step explanations, automated feedback, personalized quizzes, and progress tracking—enabling engaging and tailored education experiences for all learners.',
+        features: [
+            'AI-powered topic and curriculum generation',
+            'Stepwise interactive learning modules',
+            'Automated feedback and assessment',
+            'Dynamic quiz generation',
+            'Personalized learning paths',
+            'Progress dashboards',
+            'Multi-modal content (text, video, interactive)'
+        ],
+        techStack: [
+            'EdTech',
+            'Learning',
+            'Quiz',
+            'Interactive Education',
+            'Progress Tracking'
+        ]
+    },
+    'chat-llm': {
+        title: 'AI-Powered Chat Platform',
+        subtitle: 'Next-Generation Conversational AI Interface',
+        video: 'static/1.mp4',
+        description: 'Our Chat Platform delivers cutting-edge AI-powered conversations using custom LLMs, including GPT-4 and Perplexity AI. It provides real-time, context-aware, and highly interactive chat experiences, optimized for scalable, multi-modal engagements.',
+        features: [
+            'Custom LLM integration and fine-tuning',
+            'Seamless GPT-4 and Perplexity AI support',
+            'Real-time conversation optimization',
+            'Advanced context management & memory',
+            'Multi-modal communication',
+            'Scalable for high-volume usage',
+            'Personalized experiences'
+        ],
+        techStack: [
+            'AI Chat',
+            'Custom LLM',
+            'Conversational AI',
+            'Real-Time',
+            'Enterprise'
+        ]
+    },
+    'healthcare-hub': {
+        title: 'HealthCare Hub',
+        subtitle: 'Unified Healthcare Agency Management Platform',
+        video: 'static/6.mp4',
+        description: "HealthCare Hub is a unified management platform for healthcare agencies, streamlining client management, staff scheduling, billing, and analytics. With a modern interface and live dashboards, it delivers operational efficiency and actionable insights to drive better patient care.",
+        features: [
+            'Client relationship management (CRM)',
+            'Staff scheduling and resource allocation',
+            'Billing and payment processing',
+            'Real-time analytics & dashboards',
+            'Patient care tracking & documentation',
+            'Compliance monitoring',
+            'Mobile-responsive design'
+        ],
+        techStack: [
+            'HealthTech',
+            'Billing',
+            'Scheduling',
+            'Analytics',
+            'CRM',
+            'Healthcare'
+        ]
+    }
+};
+
+    
+    
+    // Open project details modal
+    function openProjectDetails(projectId) {
+        const project = projectsData[projectId];
+        if (!project) return;
+    
+    
+        // Update modal content
+        document.getElementById('projectTitle').textContent = project.title;
+        document.getElementById('projectSubtitle').textContent = project.subtitle;
+        document.getElementById('projectDescription').textContent = project.description;
+        
+        // Update video source
+        const video = document.getElementById('projectVideo');
+        video.src = project.video;
+        
+        // Update features list
+        const featuresList = document.getElementById('projectFeatures');
+        featuresList.innerHTML = '';
+        project.features.forEach(feature => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="fas fa-check-circle"></i> ${feature}`;
+            featuresList.appendChild(li);
+        });
+        
+        // Update tech stack
+        const techStackContainer = document.getElementById('projectTechStack');
+        techStackContainer.innerHTML = '';
+        project.techStack.forEach(tech => {
+            const span = document.createElement('span');
+            span.className = 'tech-tag';
+            span.textContent = tech;
+            techStackContainer.appendChild(span);
+        });
+        
+        // Show modal
+        document.getElementById('projectDetailsOverlay').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    
+    // Close project details modal
+    function closeProjectDetails() {
+        document.getElementById('projectDetailsOverlay').style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Pause video
+        const video = document.getElementById('projectVideo');
+        video.pause();
+    }
+    
+    
+    // Close modal when clicking outside
+    document.getElementById('projectDetailsOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeProjectDetails();
+        }
+    });
+    
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeProjectDetails();
+        }
+    });
+    
+    
+    // Video hover effects
+    document.addEventListener('DOMContentLoaded', function() {
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+            const video = card.querySelector('.project-demo-video');
+            
+            card.addEventListener('mouseenter', function() {
+                if (video) {
+                    video.play().catch(e => console.log('Video play failed:', e));
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+        });
+    });
+    

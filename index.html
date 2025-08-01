@@ -81,6 +81,14 @@
                         <i class="fas fa-chart-line"></i>
                         <span>Analytics</span>
                     </div>
+                    <div class="floating-card">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Chatbots</span>
+                    </div>
+                    <div class="floating-card">
+                        <i class="fas fa-certificate"></i>
+                        <span>State of the Art Implementations</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -136,7 +144,8 @@
                 </p>
             </div>
             <div class="projects-grid">
-                <div class="project-card" data-project="mentormate">
+                <!-- Project 1: Mentormate -->
+                <div class="project-card" onclick="openProjectDetails('mentormate')">
                     <div class="project-video laptop-frame">
                         <div class="laptop-screen">
                             <video muted loop preload="metadata" class="project-demo-video">
@@ -151,7 +160,7 @@
                     </div>
                     <div class="project-content">
                         <h3>Mentormate Platform</h3>
-                        <p>Mentormate is a purpose-built AI platform that provides instant, reliable expertise for engineering professionals in the built environment sector. Unlike generic AI tools, Mentormate uses specialized, domain-specific avatars powered by carefully curated Southern African data to ensure accurate, local, and actionable technical advice.</p>
+                        <p>Mentormate is a purpose-built AI platform that provides instant, reliable expertise for engineering professionals in the built environment sector. Unlike generic AI tools, Mentormate uses specialized, domain-specific avatars powered by carefully curated Southern African data...</p>
                         <div class="project-tags">
                             <span class="tag">Engineering AI</span>
                             <span class="tag">Domain Avatars</span>
@@ -160,149 +169,180 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project 1: LLM Reinforcement Learning -->
-               
-                
-               <!-- Project 5: MinnAI – Instant 245D Compliance -->
-               <div class="project-card" data-project="minnai">
-                <div class="project-video laptop-frame">
-                    <div class="laptop-screen">
-                        <video muted loop preload="metadata" class="project-demo-video">
-                            <source src="static/2.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-overlay">
-                            <img src="static/55.png" alt="MinnAI" />
-                            <span>MinnAI</span>
+
+                <!-- Project 2: MinnAI -->
+                <div class="project-card" onclick="openProjectDetails('minnai')">
+                    <div class="project-video laptop-frame">
+                        <div class="laptop-screen">
+                            <video muted loop preload="metadata" class="project-demo-video">
+                                <source src="static/2.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <img src="static/55.png" alt="MinnAI" />
+                                <span>MinnAI</span>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>MinnAI: Instant 245D Compliance</h3>
+                        <p>AI-driven platform for instant Minnesota 245D compliance developed in collaboration with US Federal Judge—upload docs for automated gap checks, ask our chatbot for DHS rule guidance, and get real-time alerts on regulation changes...</p>
+                        <div class="project-tags">
+                            <span class="tag">US Federal Judge</span>
+                            <span class="tag">245D</span>
+                            <span class="tag">Compliance</span>
+                            <span class="tag">Minnesota DHS</span>
                         </div>
                     </div>
-                    <div class="laptop-base"></div>
                 </div>
-                <div class="project-content">
-                    <h3>MinnAI: Instant 245D Compliance</h3>
-                    <p>AI-driven platform for instant Minnesota 245D compliance developed in <strong>collaboration with US Federal Judge</strong>—upload docs for automated gap checks, ask our chatbot for DHS rule guidance, and get real-time alerts on regulation changes to stay audit-ready. <strong>Endorsed by leading legal professionals</strong> and compliance experts.</p>
-                    <div class="project-tags">
-                        <span class="tag">US Federal Judge</span>
-                        <span class="tag">245D</span>
-                        <span class="tag">Compliance</span>
-                        <span class="tag">Minnesota DHS</span>
-                       
+
+                <!-- Project 3: Legal AI Arena -->
+                <div class="project-card" onclick="openProjectDetails('legal-ai-arena')">
+                    <div class="project-video laptop-frame">
+                        <div class="laptop-screen">
+                            <video muted loop preload="metadata" class="project-demo-video">
+                                <source src="static/4.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <img src="static/22.png" alt="Legal AI Arena" />
+                                <span>Legal AI Arena</span>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Legal AI Arena</h3>
+                        <p>An interactive platform where legal AI models compete on real tasks—contract review, research, and more. Vote, compare, and track model performance live with transparent ELO-based rankings...</p>
+                        <div class="project-tags">
+                            <span class="tag">Legal AI</span>
+                            <span class="tag">ELO Rating</span>
+                            <span class="tag">Evaluation</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-                <!-- Project 2: Legal AI Arena -->
-<div class="project-card" data-project="legal-ai-arena">
-    <div class="project-video laptop-frame">
-        <div class="laptop-screen">
-            <video muted loop preload="metadata" class="project-demo-video">
-                <source src="static/4.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay">
-                <img src="static/22.png" alt="Legal AI Arena" />
-                <span>Legal AI Arena</span>
-            </div>
-        </div>
-        <div class="laptop-base"></div>
-    </div>
-    <div class="project-content">
-        <h3>Legal AI Arena</h3>
-        <p>An interactive platform where legal AI models compete on real tasks—contract review, research, and more. Vote, compare, and track model performance live with transparent ELO-based rankings and deep legal evaluation benchmarks.</p>
-        <div class="project-tags">
-            <span class="tag">Legal AI</span>
-            <span class="tag">ELO Rating</span>
-            <span class="tag">Evaluation</span>
-        </div>
-    </div>
-</div>
 
+                <!-- Project 4: KnollyApp -->
+                <div class="project-card" onclick="openProjectDetails('knollyapp')">
+                    <div class="project-video laptop-frame">
+                        <div class="laptop-screen">
+                            <video muted loop preload="metadata" class="project-demo-video">
+                                <source src="static/3.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <img src="static/77.PNG" alt="KnollyApp" />
+                                <span>KnollyApp</span>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>KnollyApp</h3>
+                        <p>Interactive learning space with topic selection, stepwise answers, automated feedback, quizzes, and personalized progress tracking via dashboards...</p>
+                        <div class="project-tags">
+                            <span class="tag">EdTech</span>
+                            <span class="tag">Quiz</span>
+                            <span class="tag">Learning</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="project-card" data-project="knollyapp">
-    <div class="project-video laptop-frame">
-        <div class="laptop-screen">
-            <video muted loop preload="metadata" class="project-demo-video">
-                <source src="static/3.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay">
-                <img src="static/77.PNG" alt="KnollyApp" />
-                <span>KnollyApp</span>
-            </div>
-        </div>
-        <div class="laptop-base"></div>
-    </div>
-    <div class="project-content">
-        <h3>KnollyApp</h3>
-        <p>Interactive learning spaced with topic selection, stepwise answers, automated feedback, quizzes, and personalized progress tracking via dashboards.</p>
-        <div class="project-tags">
-            <span class="tag">EdTech</span>
-            <span class="tag">Quiz</span>
-            <span class="tag">Learning</span>
-        </div>
-    </div>
-</div>
+                <!-- Project 5: AI Chat Platform -->
+                <div class="project-card" onclick="openProjectDetails('chat-llm')">
+                    <div class="project-video laptop-frame">
+                        <div class="laptop-screen">
+                            <video muted loop preload="metadata" class="project-demo-video">
+                                <source src="static/1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <img src="static/66.PNG" alt="Chat Platform" />
+                                <span>AI Chat Platform</span>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI-Powered Chat Platform</h3>
+                        <p>A real-time chat platform powered by custom LLMs for fast, contextual, and intelligent conversations. Seamlessly integrates GPT-4 and Perplexity AI...</p>
+                        <div class="project-tags">
+                            <span class="tag">Custom LLM</span>
+                            <span class="tag">GPT-4</span>
+                            <span class="tag">AI Chat</span>
+                        </div>
+                    </div>
+                </div>
 
-
-<div class="project-card" data-project="chat-llm">
-    <div class="project-video laptop-frame">
-        <div class="laptop-screen">
-            <video muted loop preload="metadata" class="project-demo-video">
-                <source src="static/1.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay">
-                <img src="static/66.PNG" alt="Chat Platform"  />
-                <span>AI Chat Platform</span>
-            </div>
-        </div>
-        <div class="laptop-base"></div>
-    </div>
-    <div class="project-content">
-        <h3>AI-Powered Chat Platform</h3>
-        <p>A real-time chat platform powered by custom LLMs for fast, contextual, and intelligent conversations. Seamlessly integrates GPT-4 and Perplexity AI, ensuring high-quality, scalable engagement.</p>
-        <div class="project-tags">
-            <span class="tag">Custom LLM</span>
-            <span class="tag">GPT-4</span>
-            <span class="tag">AI Chat</span>
-        </div>
-    </div>
-</div>
-     
-
-<!-- Project 3: HealthCare Hub -->
-<div class="project-card" data-project="healthcare-hub">
-    <div class="project-video laptop-frame">
-        <div class="laptop-screen">
-            <video muted loop preload="metadata" class="project-demo-video">
-                <source src="static/6.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay">
-                <img src="static/44.png" alt="HealthCare Hub"  />
-                <span>HealthCare Hub</span>
-            </div>
-        </div>
-        <div class="laptop-base"></div>
-    </div>
-    <div class="project-content">
-        <h3>HealthCare Hub</h3>
-        <p>A unified platform for healthcare agencies to manage clients, staff scheduling, billing, and analytics—live dashboards deliver actionable insights and seamless workflows in one modern, responsive interface.</p>
-        <div class="project-tags">
-            <span class="tag">HealthTech</span>
-            <span class="tag">CRM</span>
-            <span class="tag">Billing</span>
-            <span class="tag">Scheduling</span>
-        </div>
-    </div>
-</div>
-
-
-                <!-- Project 4: Mentormate Platform -->
-
-
-
-
-
-
+                <!-- Project 6: HealthCare Hub -->
+                <div class="project-card" onclick="openProjectDetails('healthcare-hub')">
+                    <div class="project-video laptop-frame">
+                        <div class="laptop-screen">
+                            <video muted loop preload="metadata" class="project-demo-video">
+                                <source src="static/6.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay">
+                                <img src="static/44.png" alt="HealthCare Hub" />
+                                <span>HealthCare Hub</span>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>HealthCare Hub</h3>
+                        <p>A unified platform for healthcare agencies to manage clients, staff scheduling, billing, and analytics—live dashboards deliver actionable insights...</p>
+                        <div class="project-tags">
+                            <span class="tag">HealthTech</span>
+                            <span class="tag">CRM</span>
+                            <span class="tag">Billing</span>
+                            <span class="tag">Scheduling</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Project Details Modal -->
+    <div class="project-details-overlay" id="projectDetailsOverlay">
+        <div class="project-details-container">
+            <button class="project-details-close" onclick="closeProjectDetails()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="project-details-header">
+                <h2 class="project-details-title" id="projectTitle">Project Title</h2>
+                <p class="project-details-subtitle" id="projectSubtitle">Project Subtitle</p>
+            </div>
+            
+            <div class="project-details-content">
+                <div class="project-video-section">
+                    <video class="project-details-video" id="projectVideo" controls muted>
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="project-info-section">
+                    <div class="project-description">
+                        <h3><i class="fas fa-info-circle"></i> About This Project</h3>
+                        <p id="projectDescription">Detailed project description will be loaded here...</p>
+                    </div>
+                    
+                    <div class="project-features">
+                        <h3><i class="fas fa-star"></i> Key Features</h3>
+                        <ul class="features-list" id="projectFeatures">
+                            <!-- Features will be dynamically loaded -->
+                        </ul>
+                    </div>
+                    
+                    <div class="project-tech-stack">
+                        <h3><i class="fas fa-code"></i> Tags</h3>
+                        <div class="tech-tags" id="projectTechStack">
+                            <!-- Tech stack will be dynamically loaded -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
