@@ -176,6 +176,44 @@ body::after {
     list-style: none;
     gap: 2rem;
 }
+.nav-btn{
+    text-decoration: none;
+    color: #e2e8f0;
+    background-color: #06b6d4;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 20px; 
+}
+.nav-btn:hover {
+    color: #06b6d4;
+    background: rgba(6, 182, 212, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+}
+
+.nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #7c3aed, #06b6d4);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-btn:hover::after {
+    width: 80%;
+}
+
+.nav-btn.active {
+    color: #7c3aed;
+    background: rgba(124, 58, 237, 0.15);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+}
 
 .nav-link {
     text-decoration: none;
