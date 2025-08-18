@@ -28,20 +28,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links (only for same-page anchors)
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href') || '';
+
+            // In-page anchor like "#about"
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+                return;
             }
+
+            // Cross-page anchor like "index.html#about"
+            if (href.includes('#')) {
+                const [path, hash] = href.split('#');
+                const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+                const normalizedPath = path === '' ? currentFile : path;
+
+                // If link points to the current page, smooth scroll; otherwise allow navigation
+                if (currentFile === normalizedPath) {
+                    e.preventDefault();
+                    const targetSection = document.querySelector('#' + hash);
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 70;
+                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                    }
+                }
+            }
+            // If no hash or different page, let the browser handle navigation normally
         });
     });
 
